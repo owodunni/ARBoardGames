@@ -4,6 +4,13 @@
 To build the documentation run the following command:
 
 ```bash
+mkdocs serve
+```
+
+To deploy documentation run:
+
+
+```bash
 mkdocs gh-deploy
 ```
 
