@@ -1,3 +1,24 @@
+
+# Project information
 site_name: ARBoardGames Docs
+site_description: 'A description of the ARBoardGames project'
+site_author: 'Alexander Poole'
+site_url: 'https://owodunni.github.io/ARBoardGames/'
+
+
+# Copyright
+copyright: 'Copyright &copy; 2018 - 2019 Alexander Poole'
+
+# Repository
+repo_name: 'owodunni/ARBoardGames'
+repo_url: 'https://github.com/owodunni/ARBoardGames'
+
 theme:
   name: 'material'
+  language: 'en'
+  palette:
+    primary: 'Teal'
+    accent: 'indigo'
+  font:
+    text: 'Roboto'
+    code: 'Roboto Mono'
