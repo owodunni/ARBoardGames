@@ -14,6 +14,6 @@ To deploy documentation run:
 mkdocs gh-deploy
 ```
 
-The documentation can then be found at owodunni.github.io/ARBoardGames
+The documentation can then be found at https://owodunni.github.io/ARBoardGames/
 
 
