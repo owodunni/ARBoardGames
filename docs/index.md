@@ -1,17 +1,16 @@
-# Welcome to MkDocs
+# Welcome to ARBoardGames
+This site will present the following information:
 
-For full documentation visit [mkdocs.org](https://mkdocs.org).
+* The vision of ARBoardGames
+* The mission of ARBoardGames
+* The structure of ARBoardGames
+* Ways of working
 
-## Commands
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs help` - Print this help message.
-
-## Project layout
+## Documentation layout
 
     mkdocs.yml    # The configuration file.
     docs/
         index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+        project.md # The project structure 
+        about.md  # The vision and mission
