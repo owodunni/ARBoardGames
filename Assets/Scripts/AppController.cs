@@ -69,11 +69,9 @@ namespace GoogleARCore.Examples.HelloAR
             SearchingForPlaneUI.SetActive(showSearchingUI);
 
             // If the player has not touched the screen, we are done with this update.
-            Touch touch;
-            if (Input.touchCount < 1 || (touch = Input.GetTouch(0)).phase != TouchPhase.Began)
-            {
-                return;
-            }
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
 
             // Raycast against the location the player touched to search for planes.
             TrackableHit hit;
@@ -82,35 +80,25 @@ namespace GoogleARCore.Examples.HelloAR
 
             if (Frame.Raycast(touch.position.x, touch.position.y, raycastFilter, out hit))
             {
-                // Use hit pose and camera pose to check if hittest is from the
-                // back of the plane, if it is, no need to create the anchor.
-                if ((hit.Trackable is DetectedPlane) &&
-                    Vector3.Dot(FirstPersonCamera.transform.position - hit.Pose.position,
-                        hit.Pose.rotation * Vector3.up) < 0)
-                {
-                    Debug.Log("Hit at back of the current DetectedPlane");
-                }
-                else
-                {
-                    if(ball == null){
-                        // Instantiate Andy model at the hit pose.
-                        ball = Instantiate(AndyPlanePrefab, hit.Pose.position, hit.Pose.rotation);
+                if(ball == null){
+                    // Instantiate Andy model at the hit pose.
+                    ball = Instantiate(AndyPlanePrefab, hit.Pose.position, hit.Pose.rotation);
 
-                        // Compensate for the hitPose rotation facing away from the raycast (i.e. camera).
-                        ball.transform.Rotate(0, k_ModelRotation, 0, Space.Self);
+                    // Compensate for the hitPose rotation facing away from the raycast (i.e. camera).
+                    ball.transform.Rotate(0, k_ModelRotation, 0, Space.Self);
 
-                        // Create an anchor to allow ARCore to track the hitpoint as understanding of the physical
-                        // world evolves.
-                        anchor = hit.Trackable.CreateAnchor(hit.Pose);
+                    // Create an anchor to allow ARCore to track the hitpoint as understanding of the physical
+                    // world evolves.
+                    anchor = hit.Trackable.CreateAnchor(hit.Pose);
 
-                        // Make Andy model a child of the anchor.
-                        ball.transform.parent = anchor.transform;
-                    }else{
-                        ball.transform.position = hit.Pose.position;
-                    }
+                    // Make Andy model a child of the anchor.
+                    ball.transform.parent = anchor.transform;
+                }else{
+                    ball.transform.position = hit.Pose.position;
                 }
             }
         }
+    }
 
         /// <summary>
         /// Check and update the application lifecycle.
