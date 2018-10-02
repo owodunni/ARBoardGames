@@ -35,50 +35,21 @@ namespace GoogleARCore.Examples.HelloAR
     /// </summary>
     public class AppController : MonoBehaviour
     {
-        /// <summary>
-        /// The first-person camera being used to render the passthrough camera image (i.e. AR background).
-        /// </summary>
         public Camera FirstPersonCamera;
-
-        /// <summary>
-        /// A prefab for tracking and visualizing detected planes.
-        /// </summary>
         public GameObject DetectedPlanePrefab;
-
-        /// <summary>
-        /// A model to place when a raycast from a user touch hits a plane.
-        /// </summary>
         public GameObject AndyPlanePrefab;
-
-        /// <summary>
-        /// A model to place when a raycast from a user touch hits a feature point.
-        /// </summary>
         public GameObject AndyPointPrefab;
+        private GameObject ball;
+        private Anchor anchor;
 
-        /// <summary>
-        /// A gameobject parenting UI for displaying the "searching for planes" snackbar.
-        /// </summary>
         public GameObject SearchingForPlaneUI;
 
-        /// <summary>
-        /// The rotation in degrees need to apply to model when the Andy model is placed.
-        /// </summary>
         private const float k_ModelRotation = 180.0f;
 
-        /// <summary>
-        /// A list to hold all planes ARCore is tracking in the current frame. This object is used across
-        /// the application to avoid per-frame allocations.
-        /// </summary>
         private List<DetectedPlane> m_AllPlanes = new List<DetectedPlane>();
 
-        /// <summary>
-        /// True if the app is in the process of quitting due to an ARCore connection error, otherwise false.
-        /// </summary>
         private bool m_IsQuitting = false;
 
-        /// <summary>
-        /// The Unity Update() method.
-        /// </summary>
         public void Update()
         {
             _UpdateApplicationLifecycle();
@@ -121,29 +92,22 @@ namespace GoogleARCore.Examples.HelloAR
                 }
                 else
                 {
-                    // Choose the Andy model for the Trackable that got hit.
-                    GameObject prefab;
-                    if (hit.Trackable is FeaturePoint)
-                    {
-                        prefab = AndyPointPrefab;
+                    if(ball == null){
+                        // Instantiate Andy model at the hit pose.
+                        ball = Instantiate(AndyPlanePrefab, hit.Pose.position, hit.Pose.rotation);
+
+                        // Compensate for the hitPose rotation facing away from the raycast (i.e. camera).
+                        ball.transform.Rotate(0, k_ModelRotation, 0, Space.Self);
+
+                        // Create an anchor to allow ARCore to track the hitpoint as understanding of the physical
+                        // world evolves.
+                        anchor = hit.Trackable.CreateAnchor(hit.Pose);
+
+                        // Make Andy model a child of the anchor.
+                        ball.transform.parent = anchor.transform;
+                    }else{
+                        ball.transform.position = hit.Pose.position;
                     }
-                    else
-                    {
-                        prefab = AndyPlanePrefab;
-                    }
-
-                    // Instantiate Andy model at the hit pose.
-                    var andyObject = Instantiate(prefab, hit.Pose.position, hit.Pose.rotation);
-
-                    // Compensate for the hitPose rotation facing away from the raycast (i.e. camera).
-                    andyObject.transform.Rotate(0, k_ModelRotation, 0, Space.Self);
-
-                    // Create an anchor to allow ARCore to track the hitpoint as understanding of the physical
-                    // world evolves.
-                    var anchor = hit.Trackable.CreateAnchor(hit.Pose);
-
-                    // Make Andy model a child of the anchor.
-                    andyObject.transform.parent = anchor.transform;
                 }
             }
         }
