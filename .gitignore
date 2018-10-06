@@ -5,6 +5,10 @@
 [Bb]uilds/
 Assets/AssetStoreTools*
 
+# Insta run files
+Assets/GoogleARCore/SDK/InstantPreview/Scripts/InstantPreview.apk.meta
+Assets/Plugins/Android.meta
+
 # Visual Studio cache directory
 .vs/
 .vscode/
