@@ -7,7 +7,8 @@ public class BallController : MonoBehaviour {
 
     void Start()
     {
-		rb.AddForce(0,0,1000);
+		rb.AddForce(0,0,30);
+		rb.useGravity = false;
     }
 
 	    void FixedUpdate()
