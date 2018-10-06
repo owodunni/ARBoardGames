@@ -9,19 +9,19 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1285123963649556}
+  m_RootGameObject: {fileID: 1199914418901058}
   m_IsPrefabAsset: 1
---- !u!1 &1285123963649556
+--- !u!1 &1199914418901058
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4059589621456428}
-  - component: {fileID: 33292787537107336}
-  - component: {fileID: 23741014884630948}
-  - component: {fileID: 135686837859963190}
+  - component: {fileID: 4290940363779070}
+  - component: {fileID: 33987976185053694}
+  - component: {fileID: 23953412791523142}
+  - component: {fileID: 135358874830127364}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -29,25 +29,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4059589621456428
+--- !u!4 &4290940363779070
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1285123963649556}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.834, y: 0, z: 5.3799996}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_GameObject: {fileID: 1199914418901058}
+  m_LocalRotation: {x: 0, y: -0.00000043711393, z: 0, w: -1}
+  m_LocalPosition: {x: -0.04752159, y: -0.22317767, z: 1.4209749}
+  m_LocalScale: {x: -0.45010787, y: -0.52833736, z: -0.5142297}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23741014884630948
+--- !u!23 &23953412791523142
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1285123963649556}
+  m_GameObject: {fileID: 1199914418901058}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -77,19 +77,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33292787537107336
+--- !u!33 &33987976185053694
 MeshFilter:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1285123963649556}
+  m_GameObject: {fileID: 1199914418901058}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!135 &135686837859963190
+--- !u!135 &135358874830127364
 SphereCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1285123963649556}
+  m_GameObject: {fileID: 1199914418901058}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1

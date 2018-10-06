@@ -263,9 +263,9 @@ MonoBehaviour:
   FirstPersonCamera: {fileID: 1109981632}
   DetectedPlanePrefab: {fileID: 1654175882956584, guid: 6a35c744e5010405c847fad90282d2be,
     type: 2}
-  AndyPlanePrefab: {fileID: 1285123963649556, guid: dfe91736e19c09c40beb866659fb4545,
+  AndyPlanePrefab: {fileID: 1199914418901058, guid: ab7c419112f61d04c9c8132aeaf86a9a,
     type: 2}
-  AndyPointPrefab: {fileID: 1285123963649556, guid: dfe91736e19c09c40beb866659fb4545,
+  AndyPointPrefab: {fileID: 1199914418901058, guid: ab7c419112f61d04c9c8132aeaf86a9a,
     type: 2}
   SearchingForPlaneUI: {fileID: 2054254265}
 --- !u!1001 &1358707080
@@ -468,6 +468,10 @@ Prefab:
         type: 2}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1792556398509420, guid: 87b55a3322e2e8c499fe65d49e0793d3, type: 2}
+      propertyPath: m_Name
+      value: App Controller
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87b55a3322e2e8c499fe65d49e0793d3, type: 2}
