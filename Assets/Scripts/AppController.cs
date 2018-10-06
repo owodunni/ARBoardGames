@@ -37,8 +37,7 @@ namespace GoogleARCore.Examples.HelloAR
     {
         public Camera FirstPersonCamera;
         public GameObject DetectedPlanePrefab;
-        public GameObject AndyPlanePrefab;
-        public GameObject AndyPointPrefab;
+        public GameObject GameBoard;
         private GameObject ball;
         private Anchor anchor;
 
@@ -82,7 +81,7 @@ namespace GoogleARCore.Examples.HelloAR
             {
                 if(ball == null){
                     // Instantiate Andy model at the hit pose.
-                    ball = Instantiate(AndyPlanePrefab, hit.Pose.position, hit.Pose.rotation);
+                    ball = Instantiate(GameBoard, hit.Pose.position, hit.Pose.rotation);
 
                     // Compensate for the hitPose rotation facing away from the raycast (i.e. camera).
                     ball.transform.Rotate(0, k_ModelRotation, 0, Space.Self);
