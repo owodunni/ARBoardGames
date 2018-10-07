@@ -39,11 +39,15 @@ namespace GoogleARCore.Examples.HelloAR
         public GameObject DetectedPlanePrefab;
         public GameObject GameBoard;
         private GameObject ball;
+        public GameObject Player;
         private Anchor anchor;
 
         public GameObject SearchingForPlaneUI;
 
         private const float k_ModelRotation = 180.0f;
+        private const float arScale = 0.1f;
+
+        private const float planeOffSet = 0.2f;
 
         private List<DetectedPlane> m_AllPlanes = new List<DetectedPlane>();
 
@@ -85,6 +89,8 @@ namespace GoogleARCore.Examples.HelloAR
 
                     // Compensate for the hitPose rotation facing away from the raycast (i.e. camera).
                     ball.transform.Rotate(0, k_ModelRotation, 0, Space.Self);
+
+
 
                     // Create an anchor to allow ARCore to track the hitpoint as understanding of the physical
                     // world evolves.
